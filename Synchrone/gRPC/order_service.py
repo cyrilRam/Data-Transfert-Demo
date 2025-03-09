@@ -1,7 +1,7 @@
 import grpc
 import user_pb2
 import user_pb2_grpc
-from concurrent import futures
+
 
 class OrderService:
     def __init__(self):
