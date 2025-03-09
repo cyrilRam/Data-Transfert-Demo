@@ -1,0 +1,22 @@
+syntax = "proto3"; //Indique que nous utilisons Protocol Buffers version 3 (proto3)
+
+//Définit un namespace appelé user.Cela évite les conflits de noms si plusieurs fichiers .proto sont utilisés dans le projet.
+package user;
+
+//Définir un service gRPC appelé UserService
+service UserService {
+  rpc GetUser (UserRequest) returns (UserResponse);
+}
+
+//Définit un message UserRequest qui représente les données envoyées au serveur.
+message UserRequest {
+  //Un entier de 32 bits, représentant l’ID de l’utilisateur demandé.
+  int32 user_id = 1; //Le = 1 signifie que c’est le champ n°1 dans le format binaire.
+}
+
+//Définit un message UserResponse, la réponse retournée par le serveur.
+message UserResponse {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+}
