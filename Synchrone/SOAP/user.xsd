@@ -5,15 +5,17 @@
            elementFormDefault="qualified">
 
     <!-- Définition de l'élément "user" -->
-    <xs:element name="user">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="id" type="xs:int"/>
-                <xs:element name="name" type="xs:string"/>
-                <xs:element name="email" type="xs:string"/>
-                <xs:element name="age" type="xs:int" minOccurs="0"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
+    <xs:element name="id" type="xs:unsignedInt"/>
+    <xs:element name="name" type="xs:normalizedString"/>
+    <xs:element name="email" type="xs:normalizedString"/>
+    <xs:element name="age" type="xs:unsignedByte"/>
+    <xs:complexType name="UserType">
+        <xs:sequence>
+            <xs:element ref="id"/>
+            <xs:element ref="name"/>
+            <xs:element ref="email"/>
+            <xs:element ref="age" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="user" type="UserType"/>
 </xs:schema>
